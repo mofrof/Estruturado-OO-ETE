@@ -1,17 +1,34 @@
 <?php
 
 require_once 'funcoes.php';
+require_once 'Produto.php';
 
-$produtos = [
-    'Martelo' => ['Valor' => 7.5, 'Quantidade' => 40, 'Fornecedor' => 'Tramontina', 'Tipo' => 'Ferramenta'],
-    'Chave-philips' => ['Valor' => 10.5, 'Quantidade' => 50, 'Fornecedor' => 'Tramontina', 'Tipo' => 'Ferramenta'],
-    'Torneira' => ['Valor' => 3, 'Quantidade' => 50, 'Fornecedor' => 'Tigre', 'Tipo' => 'peça']
+$produto1 = new Produto();
+$produto2 = new Produto();
+$produto3 = new Produto();
 
-];
+$produto1->nome = "Martelo";
+$produto1->nomeFornecedor = "Tramontina";
+$produto1->quantidade = 40;
+$produto1->valor = 10.5;
+$produto1->tipoFornecedor = "Ferramenta";
 
+$produto2->nome = "Chave-Philips";
+$produto2->nomeFornecedor = "Tramontina";
+$produto2->quantidade = 60;
+$produto2->valor = 17.5;
+$produto2->tipoFornecedor = "Ferramenta";
+
+$produto3->nome = "Torneira";
+$produto3->nomeFornecedor = "Tigre";
+$produto3->quantidade = 15;
+$produto3->valor = 3.5;
+$produto3->tipoFornecedor = "Peça";
+
+
+$produtos = [$produto1, $produto2, $produto3];
 //$TotalVendido = 0;
 $controleSistema = 0;
-
 
 do {
     system('clear');
@@ -24,7 +41,7 @@ do {
     $controleSistema = readline();
 
     if ($controleSistema  == 1) {
-        $produtos = menuVenda($produtos);
+        menuVenda($produtos);
     } else if ($controleSistema == 2) {
         mostrarProdutos($produtos);
     } else {
