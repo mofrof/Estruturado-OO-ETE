@@ -3,27 +3,11 @@
 require_once 'funcoes.php';
 require_once 'Produto.php';
 
-$produto1 = new Produto();
-$produto2 = new Produto();
-$produto3 = new Produto();
+$produto1 = new Produto("Martelo", 10.5, 40, "Tramontina", "Ferreamenta");
+$produto2 = new Produto("Chave-Pilips", 17.5, 60, "Tramontina", "Ferramenta");
+$produto3 = new Produto("Torneira", 3.5, 15, "Tigre", "Peça");
 
-$produto1->nome = "Martelo";
-$produto1->nomeFornecedor = "Tramontina";
-$produto1->quantidade = 40;
-$produto1->valor = 10.5;
-$produto1->tipoFornecedor = "Ferramenta";
-
-$produto2->nome = "Chave-Philips";
-$produto2->nomeFornecedor = "Tramontina";
-$produto2->quantidade = 60;
-$produto2->valor = 17.5;
-$produto2->tipoFornecedor = "Ferramenta";
-
-$produto3->nome = "Torneira";
-$produto3->nomeFornecedor = "Tigre";
-$produto3->quantidade = 15;
-$produto3->valor = 3.5;
-$produto3->tipoFornecedor = "Peça";
+exit;
 
 
 $produtos = [$produto1, $produto2, $produto3];

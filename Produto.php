@@ -2,11 +2,41 @@
 
 class Produto
 {
-    public $nome;
-    public $valor;
-    public $quantidade;
-    public $nomeFornecedor;
-    public $tipoFornecedor;
+    private $nome;
+    private $valor;
+    private $quantidade;
+    private $nomeFornecedor;
+    private $tipoFornecedor;
+
+    public function __construct(string $nome, float $valor, int $quantidade, string $nomeFornecedor, string $tipoFornecedor)
+    {
+        if ($nome == "") {
+            echo "Erro nome sem valor";
+        } else {
+            $this->nome = $nome;
+        }
+        if ($nomeFornecedor == "") {
+            echo "Erro nome sem valor";
+        } else {
+            $this->nome = $nome;
+        }
+
+
+        $this->alterarValor($valor);
+        $this->quantidade = $quantidade;
+        $this->nomeFornecedor = $nomeFornecedor;
+        $this->tipoFornecedor = $tipoFornecedor;
+    }
+
+    public function alterarValor($novoValor)
+    {
+        if ($novoValor > 0) {
+            $this->valor = $novoValor;
+        } else {
+            echo "Erro ao incerir um novo valor";
+        }
+    }
+
 
     public function realizarVenda(int $quantidade): bool
     {
