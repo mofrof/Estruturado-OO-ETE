@@ -7,8 +7,9 @@ $produto1 = new Produto("Martelo", 10.5, 40, "Tramontina", "Ferreamenta");
 $produto2 = new Produto("Chave-Pilips", 17.5, 60, "Tramontina", "Ferramenta");
 $produto3 = new Produto("Torneira", 3.5, 15, "Tigre", "Peça");
 
-exit;
 
+$produto1->alterarNome("asdf");
+exit;
 
 $produtos = [$produto1, $produto2, $produto3];
 //$TotalVendido = 0;

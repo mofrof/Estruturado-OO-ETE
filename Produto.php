@@ -7,25 +7,41 @@ class Produto
     private $quantidade;
     private $nomeFornecedor;
     private $tipoFornecedor;
+    public static $valorTotalVendido;
 
     public function __construct(string $nome, float $valor, int $quantidade, string $nomeFornecedor, string $tipoFornecedor)
     {
-        if ($nome == "") {
-            echo "Erro nome sem valor";
-        } else {
-            $this->nome = $nome;
-        }
-        if ($nomeFornecedor == "") {
-            echo "Erro nome sem valor";
-        } else {
-            $this->nome = $nome;
-        }
-
-
+        $this->alterarNome($nome);
+        $this->alterarNomeFornecedor($nomeFornecedor);
         $this->alterarValor($valor);
         $this->quantidade = $quantidade;
         $this->nomeFornecedor = $nomeFornecedor;
         $this->tipoFornecedor = $tipoFornecedor;
+    }
+
+    private function alterarNome($novoNome){
+        if($novoNome == ""){
+            echo "Erro nome vazio!";
+        }else{
+            $this->nome = $novoNome;
+        }
+    }
+
+    private function alterarNomeFornecedor($novoNomeFornecedor){
+        if($novoNomeFornecedor == ""){
+            echo "Erro nomeFornecedor vazio!";
+        }else{
+            $this->nomeFornecedor = $novoNomeFornecedor;
+        }
+    }
+
+    public function adinarQuantidadeEstoque($quantidadeAdiquirida)
+    {
+        if ($quantidadeAdiquirida > 0) {
+            $this->quantidade = $this->quantidade + $quantidadeAdiquirida;
+        } else {
+            echo "Erro quantidade adiquirida, invalida!";
+        }
     }
 
     public function alterarValor($novoValor)
