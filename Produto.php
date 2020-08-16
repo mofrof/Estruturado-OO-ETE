@@ -5,33 +5,23 @@ class Produto
     private $nome;
     private $valor;
     private $quantidade;
-    private $nomeFornecedor;
-    private $tipoFornecedor;
-    public static $valorTotalVendido;
+    private $fornecedor;
+    public static $valorTotalVendido = 0;
 
     public function __construct(string $nome, float $valor, int $quantidade, string $nomeFornecedor, string $tipoFornecedor)
     {
         $this->alterarNome($nome);
-        $this->alterarNomeFornecedor($nomeFornecedor);
         $this->alterarValor($valor);
         $this->quantidade = $quantidade;
-        $this->nomeFornecedor = $nomeFornecedor;
-        $this->tipoFornecedor = $tipoFornecedor;
+        $this->fornecedor = new Fornecedor($nomeFornecedor, $tipoFornecedor);
     }
 
-    private function alterarNome($novoNome){
-        if($novoNome == ""){
+    private function alterarNome($novoNome)
+    {
+        if ($novoNome == "") {
             echo "Erro nome vazio!";
-        }else{
+        } else {
             $this->nome = $novoNome;
-        }
-    }
-
-    private function alterarNomeFornecedor($novoNomeFornecedor){
-        if($novoNomeFornecedor == ""){
-            echo "Erro nomeFornecedor vazio!";
-        }else{
-            $this->nomeFornecedor = $novoNomeFornecedor;
         }
     }
 
@@ -60,6 +50,7 @@ class Produto
             return false;
         } else {
             $this->quantidade -= $quantidade;
+            self::$valorTotalVendido += $quantidade * $this->valor;
         }
         return true;
     }
@@ -67,5 +58,10 @@ class Produto
     public function recuperaDescruicaoProduto(): string
     {
         return "Produto: $this->nome | ValorVenda:$this->valor | Quant_Estoque:$this->quantidade | Nome Fornecedor: $this->nomeFornecedor | Tipo do fornecedor: $this->tipoFornecedor";
+    }
+
+    public static function exibirTtotalVendido()
+    {
+        echo "Foi vendido R$: " . self::$valorTotalVendido;
     }
 }
