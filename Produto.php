@@ -2,10 +2,10 @@
 
 class Produto
 {
-    private $nome;
-    private $valor;
-    private $quantidade;
-    private $fornecedor;
+    public $nome;
+    public $valor;
+    public $quantidade;
+    public $fornecedor;
     public static $valorTotalVendido = 0;
 
     public function __construct(string $nome, float $valor, int $quantidade, string $nomeFornecedor, string $tipoFornecedor)

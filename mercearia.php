@@ -2,17 +2,15 @@
 
 require_once 'funcoes.php';
 require_once 'Produto.php';
+require_once 'Fornecedor.php';
 
 $produto1 = new Produto("Martelo", 10.5, 40, "Tramontina", "Ferreamenta");
 $produto2 = new Produto("Chave-Pilips", 17.5, 60, "Tramontina", "Ferramenta");
 $produto3 = new Produto("Torneira", 3.5, 15, "Tigre", "Peça");
 
 
-$produto1->realizarVenda(10);
-$produto2->realizarVenda(1);
+echo "$produto1->fornecedor->nome";
 
-
-echo Produto::exibirTtotalVendido();
 exit;
 
 $produtos = [$produto1, $produto2, $produto3];

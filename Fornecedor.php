@@ -2,8 +2,8 @@
 
 class Fornecedor
 {
-    private $nome;
-    private $tipo;
+    public $nome;
+    public $tipo;
 
     public function __construct(string $nome, string $tipo)
     {
@@ -11,12 +11,12 @@ class Fornecedor
         $this->tipo = $tipo;
     }
 
-    private function alterarNomeFornecedor($novoNomeFornecedor)
+    private function alterarNomeFornecedor($novoNome)
     {
-        if ($novoNomeFornecedor == "") {
+        if ($novoNome == "") {
             echo "Erro nomeFornecedor vazio!";
         } else {
-            $this->nomeFornecedor = $novoNomeFornecedor;
+            $this->nome = $novoNome;
         }
     }
 }
